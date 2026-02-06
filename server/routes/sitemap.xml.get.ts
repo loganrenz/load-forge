@@ -1,6 +1,6 @@
 export default defineEventHandler((event) => {
   const runtimeConfig = useRuntimeConfig()
-  const appUrl = runtimeConfig.public.appUrl || 'https://loadtest.dev'
+  const appUrl = runtimeConfig.public.appUrl.includes('localhost') ? 'https://loadtest.dev' : runtimeConfig.public.appUrl
   
   const pages = [
     '',
