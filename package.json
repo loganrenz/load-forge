@@ -1,5 +1,5 @@
 {
-  "name": "loadtest-dev",
+  "name": "loadtest",
   "type": "module",
   "private": true,
   "scripts": {

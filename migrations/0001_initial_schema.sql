@@ -1,5 +1,5 @@
--- LoadForge D1 Schema Migration
--- Creates all tables for the LoadForge load testing SaaS
+-- loadtest.dev D1 Schema Migration
+-- Creates all tables for the loadtest.dev load testing SaaS
 
 -- Users & Authentication
 CREATE TABLE IF NOT EXISTS users (

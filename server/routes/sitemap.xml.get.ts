@@ -17,7 +17,7 @@ export default defineEventHandler((event) => {
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>${page === '' ? 'daily' : 'monthly'}</changefreq>
     <priority>${page === '' ? '1.0' : '0.8'}</priority>
-  </url>`).join('')}
+  </url>`).join('').trim()}
 </urlset>`
 
   setHeader(event, 'Content-Type', 'application/xml')

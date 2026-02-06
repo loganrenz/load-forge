@@ -1,12 +1,12 @@
 {
-  "name": "loadforge",
+  "name": "loadtest",
   "pages_build_output_dir": "dist",
   "compatibility_date": "2025-07-15",
   "compatibility_flags": ["nodejs_compat"],
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "loadforge-db",
+      "database_name": "loadtest-db",
       "database_id": "e31233e0-ec16-49ad-9e4f-70a52591025b"
     }
   ]
