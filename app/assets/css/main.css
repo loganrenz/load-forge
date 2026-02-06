@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+/* Design Tokens — Light-first 2026 aesthetic */
+:root {
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-accent: #8b5cf6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --surface-primary: #ffffff;
+  --surface-secondary: #f8fafc;
+  --surface-tertiary: #f1f5f9;
+  --border-subtle: #e2e8f0;
+  --border-muted: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+}
+
+/* Subtle warm gradient background */
+.gradient-mesh-light {
+  background:
+    radial-gradient(at 0% 0%, hsla(253, 80%, 96%, 0.8) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 80%, 96%, 0.6) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, hsla(280, 70%, 97%, 0.5) 0px, transparent 50%);
+}
+
+/* Premium Button */
+.btn-primary {
+  @apply bg-gradient-to-r from-indigo-500 to-violet-600 text-white font-semibold;
+  @apply hover:from-indigo-600 hover:to-violet-700;
+  @apply transition-all duration-200 ease-out;
+  @apply shadow-md shadow-indigo-500/20 hover:shadow-lg hover:shadow-indigo-500/30;
+  @apply active:scale-[0.98];
+}
+
+/* Surface card */
+.surface-card {
+  @apply bg-white rounded-2xl border border-slate-200/80;
+  @apply shadow-sm;
+}
+
+.surface-card-hover {
+  @apply bg-white rounded-2xl border border-slate-200/80;
+  @apply shadow-sm hover:shadow-md hover:border-indigo-200;
+  @apply transition-all duration-200;
+}
+
+/* Code Editor */
+.code-editor {
+  @apply font-mono text-sm;
+  @apply bg-slate-950 rounded-xl border border-slate-200;
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Live indicator */
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.live-indicator {
+  @apply inline-flex items-center gap-2;
+}
+
+.live-indicator::before {
+  content: '';
+  @apply w-2 h-2 rounded-full bg-green-500;
+  animation: pulse-live 1.5s ease-in-out infinite;
+}
+
+/* Metric card — light version */
+.metric-card {
+  @apply relative overflow-hidden rounded-xl p-6;
+  @apply bg-white border border-slate-200/80;
+  @apply shadow-sm;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
+}
+
+/* Chart container */
+.chart-container {
+  @apply relative w-full;
+  @apply bg-white rounded-xl p-4;
+  @apply border border-slate-200/80;
+}
