@@ -145,32 +145,46 @@ const tiers = [
 ]
 
 async function subscribe(tier: typeof tiers[0]) {
+  console.log('Subscribe requested for tier:', tier.id)
   if (tier.id === 'free') {
     if (isLoggedIn.value) {
+      console.log('Already logged in, navigating to dashboard')
       return navigateTo('/dashboard')
     }
+    console.log('Not logged in, navigating to signup')
     return navigateTo('/signup')
   }
 
   if (!isLoggedIn.value) {
+    console.log('Not logged in for paid tier, navigating to signup')
     return navigateTo('/signup')
   }
 
-  if (currentTier.value === tier.id) return
+  if (currentTier.value === tier.id) {
+    console.log('Already on this tier')
+    return
+  }
 
   loading.value = tier.id
   error.value = ''
 
   try {
+    console.log('Initiating checkout for priceId:', tier.priceId)
     const { url } = await $fetch<{ url: string }>('/api/billing/checkout', {
       method: 'POST',
       body: { priceId: tier.priceId },
     })
+    console.log('Checkout session created, redirecting to:', url)
     if (url) {
       window.location.href = url
     }
+    else {
+      console.error('No URL returned from checkout API')
+      error.value = 'Failed to get checkout URL'
+    }
   }
   catch (e: any) {
+    console.error('Checkout failed:', e)
     error.value = e?.data?.message || 'Failed to start checkout'
   }
   finally {
