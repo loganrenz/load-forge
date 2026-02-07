@@ -45,6 +45,17 @@ async function handleLogout() {
           <UIcon :name="item.icon" class="w-4.5 h-4.5" />
           <span>{{ item.name }}</span>
         </NuxtLink>
+        
+        <!-- Admin Link -->
+        <NuxtLink 
+          v-if="user?.user?.isAdmin"
+          to="/admin"
+          class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-rose-500 hover:text-rose-700 hover:bg-rose-50 transition text-sm font-medium mt-2 border-t border-slate-100 pt-3"
+          active-class="!text-rose-700 !bg-rose-50"
+        >
+          <UIcon name="i-heroicons-shield-check" class="w-4.5 h-4.5" />
+          <span>Admin</span>
+        </NuxtLink>
       </nav>
       
       <!-- User section -->

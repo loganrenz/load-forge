@@ -13,11 +13,17 @@ async function handleLogin() {
   error.value = ''
   
   try {
-    await $fetch('/api/auth/login', {
+    const { user } = await $fetch<{ user: any }>('/api/auth/login', {
       method: 'POST',
       body: { email: email.value, password: password.value },
     })
     
+    const { track, identify } = useAnalytics()
+    if (user?.id) {
+      identify(user.id, { email: user.email })
+    }
+    track('login', { method: 'email' })
+
     navigateTo('/dashboard')
   } catch (e: any) {
     error.value = e.data?.message || 'An error occurred'

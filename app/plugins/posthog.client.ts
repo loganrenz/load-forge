@@ -2,7 +2,7 @@ import { posthog } from 'posthog-js'
 
 export default defineNuxtPlugin(() => {
   const runtimeConfig = useRuntimeConfig()
-  const posthogApiKey = runtimeConfig.public.posthogApiKey
+  const posthogApiKey = runtimeConfig.public.posthogPublicKey
   const posthogHost = runtimeConfig.public.posthogHost
 
   if (!posthogApiKey || import.meta.server) return

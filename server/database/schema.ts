@@ -11,6 +11,7 @@ export const users = sqliteTable('users', {
   passwordHash: text('password_hash'), // null for OAuth users
   name: text('name'),
   avatarUrl: text('avatar_url'),
+  isAdmin: integer('is_admin', { mode: 'boolean' }).default(false),
   stripeCustomerId: text('stripe_customer_id').unique(),
   createdAt: integer('created_at', { mode: 'timestamp' }).default(sql`(unixepoch())`),
   updatedAt: integer('updated_at', { mode: 'timestamp' }).default(sql`(unixepoch())`),

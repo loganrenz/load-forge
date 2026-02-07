@@ -480,6 +480,12 @@ async function saveScript() {
       },
     })
 
+    const { track } = useAnalytics()
+    track('script_created', { 
+      name: name.value, 
+      template: selectedTemplate.value?.id 
+    })
+
     navigateTo(`/scripts/${result.script.id}`)
   } catch (e: any) {
     error.value = e.data?.message || 'Failed to save script'

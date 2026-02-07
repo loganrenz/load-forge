@@ -24,6 +24,7 @@ export default defineEventHandler(async (event) => {
       email: user.email,
       name: user.name,
       avatarUrl: user.avatarUrl,
+      isAdmin: user.isAdmin || false,
       subscription,
     },
   }

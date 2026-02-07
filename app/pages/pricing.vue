@@ -174,6 +174,14 @@ async function subscribe(tier: typeof tiers[0]) {
       method: 'POST',
       body: { priceId: tier.priceId },
     })
+    
+    const { track } = useAnalytics()
+    track('checkout_initiated', { 
+      plan: tier.id, 
+      price: tier.price,
+      priceId: tier.priceId 
+    })
+
     console.log('Checkout session created, redirecting to:', url)
     if (url) {
       window.location.href = url

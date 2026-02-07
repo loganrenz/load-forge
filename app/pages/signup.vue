@@ -14,10 +14,16 @@ async function handleSignup() {
   error.value = ''
   
   try {
-    await $fetch('/api/auth/signup', {
+    const { user } = await $fetch<{ user: any }>('/api/auth/signup', {
       method: 'POST',
       body: { email: email.value, password: password.value, name: name.value },
     })
+
+    const { track, identify } = useAnalytics()
+    if (user?.id) {
+      identify(user.id, { email: user.email })
+    }
+    track('signup', { method: 'email' })
     
     navigateTo('/dashboard')
   } catch (e: any) {

@@ -72,6 +72,13 @@ async function runTest() {
       },
     })
     
+    const { track } = useAnalytics()
+    track('test_started', { 
+      scriptId: scriptId, 
+      vus: runVus.value, 
+      duration: runDuration.value 
+    })
+
     showRunModal.value = false
     navigateTo(`/runs/${result.run.id}`)
   } catch (e: any) {
