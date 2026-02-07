@@ -2,8 +2,8 @@
 useSeoMeta({
   title: 'Transparent Pricing for Global Load Testing — loadtest.dev',
   ogTitle: 'Transparent Pricing for Global Load Testing — loadtest.dev',
-  description: 'Choose the right plan for your load testing needs. From free tier for individuals to high-scale business plans with 2,000+ virtual users.',
-  ogDescription: 'Choose the right plan for your load testing needs. From free tier for individuals to high-scale business plans with 2,000+ virtual users.',
+  description: 'Choose the right plan for your load testing needs. Generous free tier with 200 VUs, or scale to 50,000+ VUs for enterprise.',
+  ogDescription: 'Choose the right plan for your load testing needs. Generous free tier with 200 VUs, or scale to 50,000+ VUs for enterprise.',
 })
 
 useHead({
@@ -87,18 +87,18 @@ const tiers = [
     name: 'Free',
     price: '$0',
     period: 'forever',
-    description: 'Perfect for getting started with load testing',
+    description: 'Generous limits for hobbyists and side projects',
     features: [
-      '50 Virtual Users',
-      '1 minute max test duration',
-      '1 concurrent test',
-      '7 day test history',
+      '200 Virtual Users',
+      '5 minute max test duration',
+      '3 concurrent tests',
+      '30 day test history',
+      'Full API access',
     ],
     limitations: [
-      'No API access',
       'No scheduled tests',
     ],
-    cta: 'Get Started',
+    cta: 'Get Started Free',
     priceId: null as string | null,
     highlight: false,
   },
@@ -107,12 +107,12 @@ const tiers = [
     name: 'Pro',
     price: '$29',
     period: '/month',
-    description: 'For growing teams that need more power',
+    description: 'For developers and growing teams that need more power',
     features: [
-      '500 Virtual Users',
-      '10 minute max test duration',
-      '3 concurrent tests',
-      '30 day test history',
+      '1,000 Virtual Users',
+      '15 minute max test duration',
+      '5 concurrent tests',
+      '90 day test history',
       'Full API access',
       'Scheduled tests',
     ],
@@ -126,12 +126,12 @@ const tiers = [
     name: 'Business',
     price: '$99',
     period: '/month',
-    description: 'For serious load testing at scale',
+    description: 'For teams that need serious load testing at scale',
     features: [
-      '2,000 Virtual Users',
-      '30 minute max test duration',
-      '10 concurrent tests',
-      '90 day test history',
+      '5,000 Virtual Users',
+      '60 minute max test duration',
+      '25 concurrent tests',
+      '1 year test history',
       'Full API access',
       'Scheduled tests',
       'Priority support',
@@ -237,7 +237,7 @@ async function subscribe(tier: typeof tiers[0]) {
         Simple, transparent pricing
       </h1>
       <p class="text-lg text-slate-500 max-w-lg mx-auto">
-        Start free, scale when you need to. No hidden fees.
+        Start free with generous limits. Scale when you need to.
       </p>
     </div>
 
@@ -316,7 +316,7 @@ async function subscribe(tier: typeof tiers[0]) {
       <div class="mt-12 text-center bg-slate-50 rounded-2xl border border-slate-200 p-8">
         <h3 class="text-xl font-bold text-slate-900 mb-2">Need enterprise scale?</h3>
         <p class="text-slate-500 text-sm mb-4 max-w-md mx-auto">
-          Up to 10,000 VUs, 60 minute tests, unlimited concurrent runs, and dedicated support.
+          Up to 50,000 VUs, 120 minute tests, 100 concurrent runs, and dedicated support.
         </p>
         <UButton variant="outline" color="neutral" size="md">
           Contact Sales
