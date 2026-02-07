@@ -14,6 +14,17 @@ export default defineNuxtPlugin(() => {
     capture_pageleave: true,
     loaded: (posthog) => {
       if (import.meta.dev) posthog.debug()
+
+      // Opt out entirely on localhost — no events captured during local dev
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        posthog.opt_out_capturing()
+        return
+      }
+
+      // Tag preview deploy traffic as internal for dashboard filtering
+      if (window.location.hostname.endsWith('.pages.dev')) {
+        posthog.register({ is_internal_user: true })
+      }
     }
   })
 
