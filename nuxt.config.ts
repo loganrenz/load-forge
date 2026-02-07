@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       meta: [
-        { name: 'description', content: 'Professional load testing powered by k6. Test your APIs and websites with up to 10,000 virtual users.' },
+        { name: 'description', content: 'Professional load testing powered by k6. Start free with 200 virtual users — no credit card required.' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'format-detection', content: 'telephone=no' },
         { name: 'theme-color', content: '#4f46e5' },
@@ -58,13 +58,13 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'loadtest.dev' },
         { property: 'og:title', content: 'loadtest.dev — k6 Load Testing Platform' },
-        { property: 'og:description', content: 'Professional load testing powered by k6. Test your APIs and websites with up to 10,000 virtual users.' },
-        { property: 'og:image', content: '/og-image.png' }, // Placeholder for now
+        { property: 'og:description', content: 'Professional load testing powered by k6. Start free with 200 virtual users — no credit card required.' },
+        { property: 'og:image', content: 'https://loadtest.dev/og-image.png' },
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'loadtest.dev — k6 Load Testing Platform' },
-        { name: 'twitter:description', content: 'Professional load testing powered by k6. Test your APIs and websites with up to 10,000 virtual users.' },
-        { name: 'twitter:image', content: '/og-image.png' },
+        { name: 'twitter:description', content: 'Professional load testing powered by k6. Start free with 200 virtual users — no credit card required.' },
+        { name: 'twitter:image', content: 'https://loadtest.dev/og-image.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

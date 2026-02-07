@@ -5,8 +5,8 @@ const { data: user } = await useFetch('/api/auth/me')
 useSeoMeta({
   title: 'Load Testing for Professional Teams — loadtest.dev',
   ogTitle: 'Load Testing for Professional Teams — loadtest.dev',
-  description: 'Scale your web applications with ease. Run k6 load tests globally with up to 10,000 virtual users. Real-time metrics, JS scripting, and enterprise features.',
-  ogDescription: 'Scale your web applications with ease. Run k6 load tests globally with up to 10,000 virtual users. Real-time metrics, JS scripting, and enterprise features.',
+  description: 'Professional load testing in minutes. Run k6 load tests with up to 200 virtual users for free. Real-time metrics, JS scripting, and global load zones.',
+  ogDescription: 'Professional load testing in minutes. Run k6 load tests with up to 200 virtual users for free. Real-time metrics, JS scripting, and global load zones.',
 })
 
 useHead({
@@ -38,7 +38,7 @@ const features = [
   {
     icon: 'i-heroicons-bolt',
     title: 'Lightning Fast',
-    description: 'Run tests with up to 10,000 virtual users powered by k6',
+    description: 'Run tests with up to 50,000 virtual users powered by k6',
   },
   {
     icon: 'i-heroicons-chart-bar',
@@ -62,8 +62,8 @@ const features = [
   },
   {
     icon: 'i-heroicons-credit-card',
-    title: 'Free Tier',
-    description: 'Get started with 50 VUs — no credit card required',
+    title: 'Generous Free Tier',
+    description: 'Start with 200 VUs and 5-minute tests — no credit card required',
   },
 ]
 
@@ -72,27 +72,27 @@ const pricingTiers = [
     name: 'Free',
     price: '$0',
     period: 'forever',
-    description: 'Perfect for getting started',
-    features: ['50 Virtual Users', '1 minute tests', '1 concurrent test', '7 day history'],
-    cta: 'Start Free',
+    description: 'Generous limits for hobbyists',
+    features: ['200 Virtual Users', '5 minute tests', '3 concurrent tests', '30 day history', 'Full API access'],
+    cta: 'Get Started Free',
     popular: false,
   },
   {
     name: 'Pro',
     price: '$29',
     period: '/month',
-    description: 'For growing teams',
-    features: ['500 Virtual Users', '10 minute tests', '3 concurrent tests', '30 day history', 'API Access', 'Scheduled tests'],
-    cta: 'Start Pro Trial',
+    description: 'For developers & growing teams',
+    features: ['1,000 Virtual Users', '15 minute tests', '5 concurrent tests', '90 day history', 'Full API access', 'Scheduled tests'],
+    cta: 'Start Pro',
     popular: true,
   },
   {
     name: 'Business',
     price: '$99',
     period: '/month',
-    description: 'For serious load testing',
-    features: ['2,000 Virtual Users', '30 minute tests', '10 concurrent tests', '90 day history', 'Priority support', 'Team collaboration'],
-    cta: 'Start Business Trial',
+    description: 'For teams at scale',
+    features: ['5,000 Virtual Users', '60 minute tests', '25 concurrent tests', '1 year history', 'Priority support', 'Team collaboration'],
+    cta: 'Start Business',
     popular: false,
   },
 ]

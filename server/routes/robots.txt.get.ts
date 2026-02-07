@@ -4,6 +4,12 @@ export default defineEventHandler((event) => {
 
   const robots = `User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /settings
+Disallow: /runs/
+Disallow: /scripts/
+Disallow: /api/
 
 Sitemap: ${appUrl}/sitemap.xml
 `

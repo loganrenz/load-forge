@@ -8,8 +8,10 @@ export default defineNuxtPlugin(() => {
   if (!posthogApiKey || import.meta.server) return
 
   const posthogClient = posthog.init(posthogApiKey, {
-    api_host: posthogHost || 'https://us.i.posthog.com',
+    api_host: '/ph',
+    ui_host: 'https://us.posthog.com',
     capture_pageview: false, // We'll handle this manually to ensure it works with Nuxt navigation
+    capture_pageleave: true,
     loaded: (posthog) => {
       if (import.meta.dev) posthog.debug()
     }
