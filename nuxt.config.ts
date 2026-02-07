@@ -67,7 +67,10 @@ export default defineNuxtConfig({
         { name: 'twitter:image', content: 'https://loadtest.dev/og-image.png' },
       ],
       link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'canonical', href: 'https://loadtest.dev' },
       ],
     },
