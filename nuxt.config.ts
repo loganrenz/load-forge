@@ -7,7 +7,22 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/fonts',
     'nuxt-gtag',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
+
+  site: {
+    url: 'https://loadtest.dev',
+    name: 'loadtest.dev — k6 Load Testing Platform'
+  },
+
+  sitemap: {
+    sources: ['/api/sitemap-urls']
+  },
+
+  robots: {
+    disallow: ['/admin/', '/dashboard', '/settings', '/runs/', '/scripts/', '/api/']
+  },
 
   gtag: {
     id: 'G-TWGT0E9ZXE',
