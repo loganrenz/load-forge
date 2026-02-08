@@ -12,8 +12,8 @@ export default defineNuxtConfig({
   ],
 
   site: {
-    url: 'https://loadtest.dev',
-    name: 'loadtest.dev — k6 Load Testing Platform'
+    url: 'https://loadtest.nardukapps.com',
+    name: 'loadtest.nardukapps.com — k6 Load Testing Platform'
   },
 
   sitemap: {
@@ -61,7 +61,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'loadtest.dev — k6 Load Testing Platform',
+      title: 'loadtest.nardukapps.com — k6 Load Testing Platform',
       htmlAttrs: {
         lang: 'en',
       },
@@ -72,22 +72,22 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#4f46e5' },
         // OpenGraph
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'loadtest.dev' },
-        { property: 'og:title', content: 'loadtest.dev — k6 Load Testing Platform' },
+        { property: 'og:site_name', content: 'loadtest.nardukapps.com' },
+        { property: 'og:title', content: 'loadtest.nardukapps.com — k6 Load Testing Platform' },
         { property: 'og:description', content: 'Professional load testing powered by k6. Start free with 200 virtual users — no credit card required.' },
-        { property: 'og:image', content: 'https://loadtest.dev/og-image.png' },
+        { property: 'og:image', content: 'https://loadtest.nardukapps.com/og-image.png' },
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'loadtest.dev — k6 Load Testing Platform' },
+        { name: 'twitter:title', content: 'loadtest.nardukapps.com — k6 Load Testing Platform' },
         { name: 'twitter:description', content: 'Professional load testing powered by k6. Start free with 200 virtual users — no credit card required.' },
-        { name: 'twitter:image', content: 'https://loadtest.dev/og-image.png' },
+        { name: 'twitter:image', content: 'https://loadtest.nardukapps.com/og-image.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
-        { rel: 'canonical', href: 'https://loadtest.dev' },
+        { rel: 'canonical', href: 'https://loadtest.nardukapps.com' },
       ],
     },
   },
