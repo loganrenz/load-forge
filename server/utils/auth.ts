@@ -48,9 +48,9 @@ async function verifyPassword(stored: string, password: string): Promise<boolean
   const parts = stored.split(':')
   if (parts[0] !== 'pbkdf2' || parts.length !== 4) return false
   
-  const iterations = parseInt(parts[1])
-  const salt = new Uint8Array(parts[2].match(/.{2}/g)!.map(b => parseInt(b, 16)))
-  const storedHash = parts[3]
+  const iterations = parseInt(parts[1]!)
+  const salt = new Uint8Array(parts[2]!.match(/.{2}/g)!.map(b => parseInt(b, 16)))
+  const storedHash = parts[3]!
   
   const encoder = new TextEncoder()
   
@@ -108,7 +108,7 @@ export async function createUser(email: string, password: string, name?: string)
     status: 'active',
   })
   
-  return user
+  return user!
 }
 
 /**
@@ -166,7 +166,7 @@ export async function validateSession(sessionId: string): Promise<User | null> {
     return null
   }
   
-  const { user, session } = result[0]
+  const { user, session } = result[0]!
   
   // Check if session is expired
   if (session.expiresAt < new Date()) {
@@ -272,5 +272,5 @@ export async function findOrCreateOAuthUser(opts: {
     status: 'active',
   })
   
-  return user
+  return user!
 }

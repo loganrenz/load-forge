@@ -5,6 +5,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/ui',
+    '@nuxt/fonts',
     'nuxt-gtag',
   ],
 
@@ -13,8 +14,8 @@ export default defineNuxtConfig({
   },
 
 
-  colorMode: {
-    preference: 'light',
+  ui: {
+    colorMode: true
   },
 
   css: ['~/assets/css/main.css'],
@@ -33,7 +34,7 @@ export default defineNuxtConfig({
     appleSecretKey: process.env.APPLE_SECRET_KEY || '',
 
     public: {
-      posthogPublicKey: 'phc_hzgiTRAOH54ku9kTK1rfGCN6gx76npc0Mxh76bvU2tF',
+      posthogPublicKey: process.env.POSTHOG_PUBLIC_KEY || '',
       posthogHost: 'https://us.i.posthog.com',
       posthogDefaults: '2025-11-30',
       stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY || '',

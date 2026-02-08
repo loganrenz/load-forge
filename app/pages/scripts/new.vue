@@ -486,7 +486,7 @@ async function saveScript() {
       template: selectedTemplate.value?.id 
     })
 
-    navigateTo(`/scripts/${result.script.id}`)
+    navigateTo(`/scripts/${result.script?.id}`)
   } catch (e: any) {
     error.value = e.data?.message || 'Failed to save script'
   } finally {

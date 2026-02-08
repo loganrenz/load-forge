@@ -102,7 +102,7 @@ async function deleteUser() {
         <div class="flex items-start justify-between">
           <div class="flex items-center gap-4">
             <UAvatar 
-              :src="user.avatarUrl" 
+              :src="user.avatarUrl ?? undefined" 
               :alt="user.name || user.email"
               size="lg"
             />

@@ -80,7 +80,7 @@ async function runTest() {
     })
 
     showRunModal.value = false
-    navigateTo(`/runs/${result.run.id}`)
+    navigateTo(`/runs/${result.run?.id}`)
   } catch (e: any) {
     runError.value = e.data?.message || 'Failed to start test'
   } finally {
@@ -158,7 +158,7 @@ async function deleteScript() {
             <span class="ml-2 text-xs text-slate-500 font-mono">{{ script.name }}.js</span>
           </div>
           <span class="text-xs text-slate-500">
-            Last updated: {{ new Date(script.updatedAt).toLocaleString() }}
+            Last updated: {{ script.updatedAt ? new Date(script.updatedAt).toLocaleString() : '-' }}
           </span>
         </div>
         

@@ -93,7 +93,7 @@ function getMenuItems(script: any): DropdownMenuItem[][] {
         </p>
         
         <div class="flex items-center gap-4 text-xs text-slate-400">
-          <span>{{ new Date(script.createdAt).toLocaleDateString() }}</span>
+          <span>{{ script.createdAt ? new Date(script.createdAt).toLocaleDateString() : '-' }}</span>
         </div>
       </div>
     </div>

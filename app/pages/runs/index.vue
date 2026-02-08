@@ -18,8 +18,8 @@ function getStatusColor(status: string) {
   return colors[status] || 'bg-slate-400'
 }
 
-function getStatusBadgeColor(status: string) {
-  const colors: Record<string, string> = {
+function getStatusBadgeColor(status: string): 'error' | 'info' | 'primary' | 'secondary' | 'success' | 'warning' | 'neutral' {
+  const colors: Record<string, 'error' | 'info' | 'primary' | 'secondary' | 'success' | 'warning' | 'neutral'> = {
     completed: 'success',
     running: 'info',
     failed: 'error',
@@ -95,7 +95,7 @@ function getStatusBadgeColor(status: string) {
               {{ item.run.metrics?.http_reqs?.toLocaleString() || '-' }}
             </td>
             <td class="px-5 py-3 text-slate-400 text-sm">
-              {{ new Date(item.run.createdAt).toLocaleDateString() }}
+              {{ item.run.createdAt ? new Date(item.run.createdAt).toLocaleDateString() : '-' }}
             </td>
           </tr>
         </tbody>

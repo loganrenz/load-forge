@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/schemas/config/wrangler.json",
   "name": "loadtest-dev",
   "pages_build_output_dir": "dist",
   "compatibility_date": "2025-07-15",

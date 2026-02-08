@@ -8,8 +8,8 @@ const updateScriptSchema = z.object({
   description: z.string().optional(),
   script: z.string().min(1).optional(),
   config: z.object({
-    thresholds: z.record(z.array(z.string())).optional(),
-    scenarios: z.record(z.unknown()).optional(),
+    thresholds: z.record(z.string(), z.array(z.string())).optional(),
+    scenarios: z.record(z.string(), z.unknown()).optional(),
   }).optional(),
 })
 
@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
   if (!result.success) {
     throw createError({
       statusCode: 400,
-      message: result.error.errors[0].message,
+      message: result.error.issues[0]?.message || 'Validation error',
     })
   }
   
@@ -52,9 +52,11 @@ export default defineEventHandler(async (event) => {
   }
   
   // Update script
+  const { config: configData, ...rest } = result.data
   const [updated] = await db.update(testScripts)
     .set({
-      ...result.data,
+      ...rest,
+      ...(configData ? { config: configData as import('../../../database/schema').TestScriptConfig } : {}),
       updatedAt: new Date(),
     })
     .where(eq(testScripts.id, scriptId))

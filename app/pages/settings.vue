@@ -76,7 +76,7 @@ async function openBillingPortal() {
         </div>
         <div class="flex items-center justify-between">
           <span class="text-slate-500 text-sm">Member since</span>
-          <span class="text-slate-900 text-sm font-medium">{{ user?.user?.createdAt ? new Date(user.user.createdAt).toLocaleDateString() : '-' }}</span>
+          <span class="text-slate-900 text-sm font-medium">-</span>
         </div>
       </div>
     </div>

@@ -82,7 +82,7 @@ async function handleLogout() {
       <div class="p-3 border-t border-slate-100">
         <div class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-slate-50">
           <UAvatar 
-            :src="user?.user?.avatarUrl" 
+            :src="user?.user?.avatarUrl ?? undefined" 
             :alt="user?.user?.name || user?.user?.email"
             size="xs"
           />

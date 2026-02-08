@@ -35,7 +35,7 @@ export async function requireAuth(event: any): Promise<User> {
     })
   }
   
-  const { user, session } = result[0]
+  const { user, session } = result[0]!
   
   // Check if session is expired
   if (session.expiresAt < new Date()) {

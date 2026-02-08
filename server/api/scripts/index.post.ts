@@ -8,8 +8,8 @@ const createScriptSchema = z.object({
   description: z.string().optional(),
   script: z.string().min(1, 'Script content is required'),
   config: z.object({
-    thresholds: z.record(z.array(z.string())).optional(),
-    scenarios: z.record(z.unknown()).optional(),
+    thresholds: z.record(z.string(), z.array(z.string())).optional(),
+    scenarios: z.record(z.string(), z.unknown()).optional(),
   }).optional(),
 })
 
@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
   if (!result.success) {
     throw createError({
       statusCode: 400,
-      message: result.error.errors[0].message,
+      message: result.error.issues[0]?.message || 'Validation error',
     })
   }
   
@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
     name,
     description,
     script,
-    config: config || {},
+    config: (config || {}) as import('../../database/schema').TestScriptConfig,
   }).returning()
   
   return { script: newScript }

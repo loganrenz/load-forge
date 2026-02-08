@@ -50,7 +50,7 @@ async function runTestSimulation(runId: string) {
     })
     .where(eq(testRuns.id, runId))
 
-  const durationSec = parseDuration(config.duration)
+  const durationSec = parseDuration(config.duration || '30s')
   const vus = config.vus
 
   // In Workers, we can't do long-running setTimeout loops.
@@ -126,7 +126,7 @@ async function runTestSimulation(runId: string) {
 function parseDuration(duration: string): number {
   const match = duration.match(/^(\d+)(s|m|h)$/)
   if (!match) return 30
-  const value = parseInt(match[1])
+  const value = parseInt(match[1]!)
   switch (match[2]) {
     case 's': return value
     case 'm': return value * 60

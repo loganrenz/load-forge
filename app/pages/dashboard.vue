@@ -153,7 +153,7 @@ function getStatusColor(status: string) {
             <td class="px-5 py-3 text-slate-600 text-sm">{{ item.run.config?.vus || '-' }}</td>
             <td class="px-5 py-3 text-slate-600 text-sm">{{ item.run.config?.duration || '-' }}</td>
             <td class="px-5 py-3 text-slate-400 text-sm">
-              {{ new Date(item.run.createdAt).toLocaleDateString() }}
+              {{ item.run.createdAt ? new Date(item.run.createdAt).toLocaleDateString() : '-' }}
             </td>
           </tr>
         </tbody>

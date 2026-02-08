@@ -191,44 +191,44 @@ function base64UrlEncode(input: string | Uint8Array): string {
  * Convert DER-encoded ECDSA signature to raw r||s format
  * Web Crypto may return DER format, but JWT needs raw
  */
-function derToRaw(der: Uint8Array): Uint8Array {
+function derToRaw(der: Uint8Array): Uint8Array<ArrayBuffer> {
   // Check if it's already raw (64 bytes for P-256)
-  if (der.length === 64) return der
+  if (der.length === 64) return der as Uint8Array<ArrayBuffer>
 
   // DER format: 0x30 [len] 0x02 [r_len] [r] 0x02 [s_len] [s]
-  if (der[0] !== 0x30) return der // not DER, return as-is
+  if (der[0] !== 0x30) return der as Uint8Array<ArrayBuffer> // not DER, return as-is
 
   let offset = 2 // skip SEQUENCE tag and length
 
   // Read r
-  if (der[offset] !== 0x02) return der
+  if (der[offset] !== 0x02) return der as Uint8Array<ArrayBuffer>
   offset++
   const rLen = der[offset]!
   offset++
-  let r = new Uint8Array(der.slice(offset, offset + rLen))
+  let r = new Uint8Array(der.slice(offset, offset + rLen)) as Uint8Array<ArrayBuffer>
   offset += rLen
 
   // Read s
-  if (der[offset] !== 0x02) return der
+  if (der[offset] !== 0x02) return der as Uint8Array<ArrayBuffer>
   offset++
   const sLen = der[offset]!
   offset++
-  let s = new Uint8Array(der.slice(offset, offset + sLen))
+  let s = new Uint8Array(der.slice(offset, offset + sLen)) as Uint8Array<ArrayBuffer>
 
   // Pad or trim to 32 bytes each
   r = padOrTrim(r, 32)
   s = padOrTrim(s, 32)
 
-  const raw = new Uint8Array(64)
+  const raw = new Uint8Array(64) as Uint8Array<ArrayBuffer>
   raw.set(r, 0)
   raw.set(s, 32)
   return raw
 }
 
-function padOrTrim(buf: Uint8Array, size: number): Uint8Array {
-  if (buf.length === size) return buf
-  if (buf.length > size) return buf.slice(buf.length - size) // trim leading zeros
-  const padded = new Uint8Array(size)
+function padOrTrim(buf: Uint8Array, size: number): Uint8Array<ArrayBuffer> {
+  if (buf.length === size) return buf as Uint8Array<ArrayBuffer>
+  if (buf.length > size) return buf.slice(buf.length - size) as Uint8Array<ArrayBuffer> // trim leading zeros
+  const padded = new Uint8Array(size) as Uint8Array<ArrayBuffer>
   padded.set(buf, size - buf.length)
   return padded
 }

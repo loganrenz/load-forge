@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
   if (!result.success) {
     throw createError({
       statusCode: 400,
-      message: result.error.errors[0].message,
+      message: result.error.issues[0]?.message || 'Validation error',
     })
   }
   
@@ -93,7 +93,7 @@ export default defineEventHandler(async (event) => {
   
   // Execute the test run in the background via Cloudflare waitUntil
   const waitUntil = event.context.cloudflare?.context?.waitUntil?.bind(event.context.cloudflare.context)
-  executeTestRun(run.id, waitUntil)
+  executeTestRun(run!.id, waitUntil)
   
   return { run }
 })
