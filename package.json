@@ -36,5 +36,8 @@
     "@types/node": "^22.15.0",
     "drizzle-kit": "^0.31.8",
     "wrangler": "^4.53.0"
+  },
+  "volta": {
+    "node": "22.22.0"
   }
 }
