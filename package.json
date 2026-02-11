@@ -10,7 +10,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "deploy": "doppler run -- nuxt build && node scripts/patch-cf-process-proxy.mjs && wrangler pages deploy dist"
+    "deploy": "doppler run -p loadtest-dev -c prd -- nuxt build && node scripts/patch-cf-process-proxy.mjs && wrangler pages deploy dist"
   },
   "dependencies": {
     "@nuxt/ui": "^4.4.0",
