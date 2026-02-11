@@ -4,6 +4,7 @@ export default defineNuxtPlugin(() => {
   const runtimeConfig = useRuntimeConfig()
   const posthogApiKey = runtimeConfig.public.posthogPublicKey
   const posthogHost = runtimeConfig.public.posthogHost
+  const appName = (runtimeConfig.public.appName as string) || undefined
 
   if (!posthogApiKey || import.meta.server) return
 
@@ -12,18 +13,23 @@ export default defineNuxtPlugin(() => {
     ui_host: 'https://us.posthog.com',
     capture_pageview: false, // We'll handle this manually to ensure it works with Nuxt navigation
     capture_pageleave: true,
-    loaded: (posthog) => {
-      if (import.meta.dev) posthog.debug()
+    loaded: (ph) => {
+      if (import.meta.dev) ph.debug()
 
       // Opt out entirely on localhost — no events captured during local dev
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        posthog.opt_out_capturing()
+        ph.opt_out_capturing()
         return
+      }
+
+      // Partition by app when using a single shared PostHog project (set APP_NAME in Doppler)
+      if (appName) {
+        ph.register({ app: appName })
       }
 
       // Tag preview deploy traffic as internal for dashboard filtering
       if (window.location.hostname.endsWith('.pages.dev')) {
-        posthog.register({ is_internal_user: true })
+        ph.register({ is_internal_user: true })
       }
     }
   })

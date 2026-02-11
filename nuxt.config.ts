@@ -1,3 +1,5 @@
+import pkg from './package.json'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -56,6 +58,8 @@ export default defineNuxtConfig({
       stripePriceIdPro: process.env.STRIPE_PRICE_ID_PRO || '',
       stripePriceIdBusiness: process.env.STRIPE_PRICE_ID_BUSINESS || '',
       appUrl: process.env.APP_URL || 'http://localhost:3000',
+      // App name for partitioning in a single PostHog project (set APP_NAME in Doppler)
+      appName: process.env.APP_NAME || pkg.name || ''
     },
   },
 
