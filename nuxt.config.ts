@@ -20,7 +20,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     sources: ['/api/sitemap-urls'],
-    excludeUrls: ['/admin/**', '/dashboard', '/settings', '/runs/**', '/scripts/**', '/login']
+    exclude: ['/admin', '/admin/**', '/dashboard', '/settings', '/runs', '/runs/**', '/scripts', '/scripts/**', '/login', '/signup']
   },
 
   robots: {

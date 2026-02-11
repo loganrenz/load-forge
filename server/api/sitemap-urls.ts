@@ -8,8 +8,7 @@ export default defineEventHandler(() => {
     { loc: '/docs/getting-started', changefreq: 'monthly', priority: 0.8 },
     { loc: '/docs/writing-tests', changefreq: 'monthly', priority: 0.8 },
     { loc: '/docs/understanding-results', changefreq: 'monthly', priority: 0.8 },
-    { loc: '/signup', changefreq: 'monthly', priority: 0.7 },
-    { loc: '/login', changefreq: 'monthly', priority: 0.5 },
+
   ]
 
   // Tool pages — keep in sync with data/tools.ts
