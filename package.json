@@ -10,7 +10,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "deploy": "nuxt build && wrangler pages deploy dist"
+    "deploy": "doppler run -- nuxt build && wrangler pages deploy dist"
   },
   "dependencies": {
     "@nuxt/ui": "^4.4.0",
